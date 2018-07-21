@@ -45,7 +45,28 @@ def josephus_A(n,k,m):
 			print("")#之前在同一行输出后，换行
 	return
 
-josephus_A(10,3,2)#57913610428
+def josephus_L_own(n,k,m):
+	#n是人数，k是开始报数，m是第m个人报数退出
+	people=list(range(1,n+1))
+	i=k+m-1
+	while n >1:
+		print(people.pop(i))
+		n-=1
+		i=(i+m-1)%n#虽然之前i=k+m-1已经-1了，但是因为每次都pop了一个元素，
+		#该元素后面的索引都前移一位，所以这里还要-1
+	print(people.pop())# 循环早跳了一个，最后手动输出剩下的最后一个
+
+def josephus_L(n,k,m):
+	people=list(range(1,n+1))
+
+	num,i=n,k
+	for num in range(n,0,-1):#从n~1
+		i=(i+m-1)%num#最后一个是1%1=0，不过主要是为了i在合适的num内
+		print(people.pop(i),
+			end=(", " if num>1 else "\n"))
+	return
+
+josephus_L(10,3,2)#57913610428
 
 
 
