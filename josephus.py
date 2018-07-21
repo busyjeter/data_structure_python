@@ -40,9 +40,9 @@ def josephus_A(n,k,m):
 			#是因为求模运算的特点，a%b，当a比b小时，求模运算=a ，当a比b大1，就余1，意味着
 			#i可以在0~n之间循环
 		if num<n-1:
-			print(",",end="")#
+			print(",",end="")#逗号分割，同行输出
 		else:
-			print("")
+			print("")#之前在同一行输出后，换行
 	return
 
 josephus_A(10,3,2)#57913610428
